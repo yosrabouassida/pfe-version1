@@ -1,0 +1,11 @@
+FROM python:3.6.6-slim-stretch
+
+COPY requirements.txt .
+RUN pip install --upgrade -r requirements.txt
+
+COPY 020_api 020_api
+
+ENTRYPOINT [ "python3.6", "/020_api/navigation.py" ]
+
+# sudo docker build --no-cache -t navigation -f Dockerfile_navigation .
+# sudo docker run -p 5003:5003 navigation
